@@ -1,16 +1,17 @@
 ﻿@page "/"
+@using January.Problems
 
 <h4 class="mb-3">
-    <a href="https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3589/" target="_blank" class="ml-md-auto">Check Array Formation Through Concatenation</a>
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
 </h4>
 
 <div class="mb-3">
     <label for="targetArray" class="form-label">Target Array</label>
-    <input type="text" class="form-control" id="targetArray" placeholder="[91,4,64,78]">
+    <input type="text" @bind="TargetArray" class="form-control" id="targetArray" placeholder="[91,4,64,78]">
 </div>
 <div class="mb-3">
     <label for="pieces" class="form-label">Pieces</label>
-    <input type="text" class="form-control" id="pieces" placeholder="[[78],[4,64],[91]]">
+    <input type="text" @bind="Pieces" class="form-control" id="pieces" placeholder="[[78],[4,64],[91]]">
 </div>
 <div class="mb-3">
     <label class="form-label">Constraints</label>
@@ -24,13 +25,22 @@
     </ul>
 </div>
 <div class="mb-3">
-    <label class="form-label">Output</label>
+    <label class="form-label">Output: <code>@Output</code></label>
 </div>
 
 <div class="mb-3">
-    <button class="btn btn-primary mb-3">Run</button>
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
 </div>
 
 @code {
+    private string TargetArray { get; set; }
+    private string Pieces { get; set; }
+    private string Output { get; set; }
 
+    CheckArrayFormationThroughConcatenation problem = new CheckArrayFormationThroughConcatenation();
+
+    private void Run()
+    {
+        Output = problem.CanFormArray(TargetArray, Pieces);
+    }
 }
