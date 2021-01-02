@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using January.Helpers;
 using Shared.Interfaces;
 
@@ -24,9 +25,32 @@ namespace January.Problems
             }
         }
 
-        public bool CanFormArray(int[] arr, int[][] pieces)
+        public bool CanFormArray(int[] targetArray, int[][] pieces)
         {
-            return false;
+            var map = new Dictionary<int,int>();
+
+            for (var i = 0; i < targetArray.Length; i++)
+            {
+                map.Add(targetArray[i], i);
+            }
+
+            var piecesLength = 0;
+            foreach (var piece in pieces)
+            {
+                if (piece.Length < 1) continue;
+                if (!map.ContainsKey(piece[0])) return false;
+
+                piecesLength += piece.Length;
+                var index = map[piece[0]] + 1;
+
+                for (var i = 1; i < piece.Length; i++)
+                {
+                    if (index >= targetArray.Length || piece[i] != targetArray[index]) return false;
+                    index++;
+                }
+            }
+
+            return targetArray.Length == piecesLength;
         }
     }
 }
