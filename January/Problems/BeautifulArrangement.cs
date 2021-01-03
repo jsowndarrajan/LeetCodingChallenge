@@ -28,11 +28,11 @@ namespace January.Problems
             }
 
             var result = 0;
-            CountArrangement(array, n, ref result);
+            Permute(array, n, ref result);
             return result;
         }
 
-        private void CountArrangement(int[] array, int n, ref int result)
+        private void Permute(int[] array, int n, ref int result)
         {
             if (n == 0)
             {
@@ -40,12 +40,12 @@ namespace January.Problems
                 return;
             }
 
-            for (var i = n; i >0; i--)
+            for (var i = n; i > 0; i--)
             {
                 Swap(array, i, n);
                 if (array[n] % n == 0 | n % array[n] == 0)
                 {
-                    CountArrangement(array, n - 1, ref result);
+                    Permute(array, n - 1, ref result);
                 }
                 Swap(array, n, i);
             }
