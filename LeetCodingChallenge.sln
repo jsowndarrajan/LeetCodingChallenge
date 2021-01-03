@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Tests", "Shared.Tests\Shared.Tests.csproj", "{67608320-70F0-431B-A00F-E033DB0D63EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "January.Tests", "January.Tests\January.Tests.csproj", "{D3DC71BB-F0E5-4033-A7B7-F3EB22377720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "January.Tests", "January.Tests\January.Tests.csproj", "{D3DC71BB-F0E5-4033-A7B7-F3EB22377720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
