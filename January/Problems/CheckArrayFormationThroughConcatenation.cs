@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using January.Helpers;
+using Shared.Helpers;
 using Shared.Interfaces;
 
 namespace January.Problems
@@ -12,7 +12,7 @@ namespace January.Problems
 
         public string CanFormArray(string targetArray, string pieces)
         {
-            if (string.IsNullOrWhiteSpace(targetArray) || string.IsNullOrWhiteSpace(pieces)) return "Invalid Input";
+            if (string.IsNullOrWhiteSpace(targetArray) || string.IsNullOrWhiteSpace(pieces)) return Messages.InvalidInput;
             try
             {
                 var array = DataConverter.ConvertStringToIntArray(targetArray);

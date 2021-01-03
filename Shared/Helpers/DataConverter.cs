@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Shared.Models;
 
-namespace January.Helpers
+namespace Shared.Helpers
 {
     public class DataConverter
     {
-        private const string InvalidInput = "Invalid Input";
-
         public static int[] ConvertStringToIntArray(string input)
         {
             var match = Regex.Match(input.Trim(), @"\[([0-9,\s]*)\]");
-            if (!match.Success) throw new ArgumentException(InvalidInput);
+            if (!match.Success) throw new ArgumentException(Messages.InvalidInput);
 
             try
             {
@@ -27,14 +26,14 @@ namespace January.Helpers
             }
             catch (Exception)
             {
-                throw new ArgumentException(InvalidInput);
+                throw new ArgumentException(Messages.InvalidInput);
             }
         }
 
         public static int[][] ConvertStringToNestedArray(string input)
         {
             var matches = Regex.Matches(input, @"\[[0-9,\s]*\]");
-            if (matches.Count < 1) throw new ArgumentException(InvalidInput);
+            if (matches.Count < 1) throw new ArgumentException(Messages.InvalidInput);
 
             var output = new List<int[]>();
 
@@ -46,5 +45,27 @@ namespace January.Helpers
             return output.ToArray();
         }
 
+        public static TreeNode ConvertStringArrayToTreeNode(string binaryArray)
+        {
+            var match = Regex.Match(binaryArray.Trim(), @"\[(.*)\]");
+            if (!match.Success) throw new ArgumentException(Messages.InvalidInput);
+
+            var nodeStrings = match.Groups[1].Value.Split(',');
+            return TreeHelper.ConstructLevelOrderTree(nodeStrings, 1);
+        }
+
+        public static TreeNode ConvertStringArrayToTreeNode(string binaryArray, TreeNode treeNode)
+        {
+            var match = Regex.Match(binaryArray.Trim(), @"\[(.*)\]");
+            if (!match.Success) throw new ArgumentException(Messages.InvalidInput);
+
+            var nodeStrings = match.Groups[1].Value.Split(',');
+            return TreeHelper.ConstructLevelOrderTree(nodeStrings, 1, treeNode);
+        }
+
+        public static TreeNode ConvertStringNumberToTargetNode(string targetNumber)
+        {
+            return int.TryParse(targetNumber, out var value) ? new TreeNode(value) : null;
+        }
     }
 }

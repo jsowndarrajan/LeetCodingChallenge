@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
-using January.Helpers;
-using NUnit.Framework;
+using Shared.Helpers;
 
 namespace Shared.Tests.Helpers
 {
@@ -24,17 +24,17 @@ namespace Shared.Tests.Helpers
         public void ShouldThrowArgumentException(string input)
         {
             var ex = Assert.Throws<ArgumentException>(() => DataConverter.ConvertStringToIntArray(input));
-            Assert.That(ex.Message, Is.EqualTo("Invalid Input"));
+            Assert.That(ex.Message, Is.EqualTo(Messages.InvalidInput));
         }
 
-        [Test, TestCaseSource(nameof(_testCaseSource))]
+        [Test, TestCaseSource(nameof(TestCaseSource))]
         public void ShouldReturnValidNestedArray(string input, List<int[]> expected)
         {
             var actual = DataConverter.ConvertStringToNestedArray(input);
             Assert.AreEqual(expected.ToArray(), actual);
         }
 
-        static object[] _testCaseSource =
+        private static readonly object[] TestCaseSource =
         {
             new object[] { "[[1], [2, 3]]", new List<int[]>{ new[] {1}, new [] {2,3} } },
             new object[] { "[[1], []]", new List<int[]>{ new[] {1}, new int[] {} } },
