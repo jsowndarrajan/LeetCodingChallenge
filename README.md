@@ -1,5 +1,7 @@
 # LeetCoding Challenge 2021
 
+![.NET](https://github.com/jsowndarrajan/LeetCodingChallenge/workflows/.NET/badge.svg)
+
 This project is a user-friendly `Blazor` web application and will help developers to understand DSA along with the monthly leetcoding challenge of the year 2021.
 
 You will be required .NET 5 SDK to run this application. Here is the download link for the same: https://dotnet.microsoft.com/download/dotnet/5.0
