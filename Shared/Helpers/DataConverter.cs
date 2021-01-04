@@ -10,7 +10,7 @@ namespace Shared.Helpers
     {
         public static int[] ConvertStringToIntArray(string input)
         {
-            var match = Regex.Match(input.Trim(), @"\[([0-9,\s]*)\]");
+            var match = Regex.Match(input.Trim(), @"\[([0-9,\-\s]*)\]");
             if (!match.Success) throw new ArgumentException(Messages.InvalidInput);
 
             try
