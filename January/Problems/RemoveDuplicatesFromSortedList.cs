@@ -5,9 +5,9 @@ using Shared.Models;
 
 namespace January.Problems
 {
-    public class RemoveDuplicatesFromList : IProblem
+    public class RemoveDuplicatesFromSortedList : IProblem
     {
-        public string Title => "Remove duplicates from list";
+        public string Title => "Remove duplicates from sorted list";
         public string Url => "https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3593/";
 
         public string DeleteDuplicates(string inputArray)
@@ -25,6 +25,41 @@ namespace January.Problems
         }
 
         public ListNode DeleteDuplicates(ListNode head)
+        {
+            // sentinel
+            ListNode sentinel = new ListNode(0, head);
+
+            // predecessor = the last node 
+            // before the sublist of duplicates
+            ListNode pred = sentinel;
+
+            while (head != null)
+            {
+                // if it's a beginning of duplicates sublist 
+                // skip all duplicates
+                if (head.Next != null && head.Value == head.Next.Value)
+                {
+                    // move till the end of duplicates sublist
+                    while (head.Next != null && head.Value == head.Next.Value)
+                    {
+                        head = head.Next;
+                    }
+                    // skip all duplicates
+                    pred.Next = head.Next;
+                    // otherwise, move predecessor
+                }
+                else
+                {
+                    pred = pred.Next;
+                }
+
+                // move forward
+                head = head.Next;
+            }
+            return sentinel.Next;
+        }
+
+        public ListNode DeleteDuplicates1(ListNode head)
         {
             var currentNode = head;
             ListNode duplicateNode = null;

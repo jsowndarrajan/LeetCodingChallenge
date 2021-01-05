@@ -4,14 +4,14 @@ using Shared.Models;
 
 namespace January.Tests.Problems
 {
-    public class RemoveDuplicatesFromListTests
+    public class RemoveDuplicatesFromSortedListTests
     {
-        private RemoveDuplicatesFromList _sut;
+        private RemoveDuplicatesFromSortedList _sut;
 
         [SetUp]
         public void Setup()
         {
-            _sut = new RemoveDuplicatesFromList();
+            _sut = new RemoveDuplicatesFromSortedList();
         }
 
         [Test, TestCaseSource(nameof(_testCaseSource))]
