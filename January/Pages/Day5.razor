@@ -1,0 +1,38 @@
+﻿@page "/day5"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="l1" class="form-label">Input</label>
+    <input type="text" @bind="L1" class="form-control" id="l1" placeholder="[1,2,2,4]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
+        <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+        <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string L1 { get; set; }
+    private string Output { get; set; }
+
+    RemoveDuplicatesFromList problem = new RemoveDuplicatesFromList();
+
+    private void Run()
+    {
+        Output = problem.DeleteDuplicates(L1);
+    }
+}
