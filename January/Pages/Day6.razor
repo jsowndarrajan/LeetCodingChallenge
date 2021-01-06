@@ -1,0 +1,43 @@
+﻿@page "/day6"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="l1" class="form-label">Input</label>
+    <input type="text" @bind="InputArray" class="form-control" id="l1" placeholder="[1,2,4,5]">
+</div>
+<div class="mb-3">
+    <label for="k" class="form-label">Input</label>
+    <input type="text" @bind="K" class="form-control" id="k" placeholder="3">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= arr.length &lt;= 1000</code></li>
+        <li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
+        <li><code>1 &lt;= k &lt;= 1000</code></li>
+        <li><code>arr[i] &lt; arr[j]</code> for <code>1 &lt;= i &lt; j &lt;= arr.length</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string InputArray { get; set; }
+    private string K { get; set; }
+    private string Output { get; set; }
+
+    KthMissingPositiveNumber problem = new KthMissingPositiveNumber();
+
+    private void Run()
+    {
+        Output = problem.FindKthPositive(InputArray, K);
+    }
+}
