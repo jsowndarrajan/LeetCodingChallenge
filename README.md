@@ -21,4 +21,5 @@ You can also execute the application in command prompt by using the below comman
 2. [Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3590/)
 3. [Beautiful Arrangement](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3591/)
 4. [Merge Two Sorted Lists](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3592/)
-4. [Remove Duplicates from List](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3593/)
+5. [Remove Duplicates from Sorted List II](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3593/)
+6. [Kth Missing Positive Number](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3594/)
