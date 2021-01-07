@@ -1,0 +1,36 @@
+﻿@page "/day7"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="InputString" class="form-control" id="input" placeholder="abcabcbb">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>0 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
+        <li><code>s</code> consists of English letters, digits, symbols and spaces.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string InputString { get; set; }
+    private int? Output { get; set; }
+
+    LongestSubstring problem = new LongestSubstring();
+
+    private void Run()
+    {
+        Output = problem.LengthOfLongestSubstring(InputString);
+    }
+}
