@@ -7,41 +7,16 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                Day 1
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/day2">
-                Day 2
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/day3">
-                Day 3
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/day4">
-                Day 4
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/day5">
-                Day 5
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/day6">
-                Day 6
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/day7">
-                Day 7
-            </NavLink>
-        </li>
+        
+        @for (var i = 1; i <= DateTime.Now.Day; i++)
+        {
+            var local_i = i;
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="@($"/day{@i}")">
+                    <span>@($"Day {@local_i}")</span>
+                </NavLink>
+            </li>
+        }
     </ul>
 </div>
 

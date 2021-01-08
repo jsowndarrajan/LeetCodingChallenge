@@ -30,6 +30,28 @@ namespace Shared.Helpers
             }
         }
 
+        public static string[] ConvertStringToStringArray(string input)
+        {
+            var match = Regex.Match(input.Trim(), @"\[(.*)\]");
+            if (!match.Success) throw new ArgumentException(Messages.InvalidInput);
+
+            try
+            {
+                if (match.Groups.Count == 2 &&
+                    string.IsNullOrWhiteSpace(match.Groups[1].Value))
+                    return new string[] { };
+
+                return match.Groups[1].Value
+                    .Split(',')
+                    .Select(x => x.Trim().Trim('"'))
+                    .ToArray();
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException(Messages.InvalidInput);
+            }
+        }
+
         public static int[][] ConvertStringToNestedArray(string input)
         {
             var matches = Regex.Matches(input, @"\[[0-9,\s]*\]");

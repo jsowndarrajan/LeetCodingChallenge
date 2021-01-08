@@ -1,0 +1,43 @@
+﻿@page "/day8"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="input1" class="form-label">Input Array 1</label>
+    <input type="text" @bind="InputArray1" class="form-control" id="input1" placeholder='["a", "bc"]'>
+</div>
+<div class="mb-3"> 
+    <label for="input" class="form-label">Input Array 2</label>
+    <input type="text" @bind="InputArray2" class="form-control" id="input1" placeholder='["ab", "c"]'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= word1.length, word2.length &lt;= 10<sup>3</sup></code></li>
+        <li><code>1 &lt;= word1[i].length, word2[i].length &lt;= 10<sup>3</sup></code></li>
+        <li><code>1 &lt;= sum(word1[i].length), sum(word2[i].length) &lt;= 10<sup>3</sup></code></li>
+        <li><code>word1[i]</code> and <code>word2[i]</code> consist of lowercase letters.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string InputArray1 { get; set; }
+    private string InputArray2 { get; set; }
+    private string Output { get; set; }
+
+    CheckIfTwoStringArraysAreEquivalent problem = new CheckIfTwoStringArraysAreEquivalent();
+
+    private void Run()
+    {
+        Output = problem.ArrayStringsAreEqual(InputArray1, InputArray2);
+    }
+}

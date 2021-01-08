@@ -39,5 +39,20 @@ namespace Shared.Tests.Helpers
             new object[] { "[[1], [2, 3]]", new List<int[]>{ new[] {1}, new [] {2,3} } },
             new object[] { "[[1], []]", new List<int[]>{ new[] {1}, new int[] {} } },
         };
+
+        [Test, TestCaseSource(nameof(TestCaseSourceForStringToStringArray))]
+        public void ConvertStringToStringArray(string input, string[] expected)
+        {
+            var actual = DataConverter.ConvertStringToStringArray(input);
+            Assert.AreEqual(actual, expected);
+        }
+
+        private static readonly object[] TestCaseSourceForStringToStringArray =
+        {
+            new object[] { "[\"\"]", new[] {""}},
+            new object[] { "[\"abc\"]", new[] {"abc"}},
+            new object[] { "[\"a\", \"bc\"]", new[] {"a", "bc"}},
+            new object[] { "[\"\", \"bc\"]", new[] {"", "bc"}}
+        };
     }
 }
