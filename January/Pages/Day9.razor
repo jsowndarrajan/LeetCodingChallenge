@@ -1,0 +1,51 @@
+﻿@page "/day9"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="beginWord" class="form-label">Begin Word</label>
+    <input type="text" @bind="BeginWord" class="form-control" id="beginWord" placeholder="hit">
+</div>
+<div class="mb-3">
+    <label for="endWord" class="form-label">End Word</label>
+    <input type="text" @bind="EndWord" class="form-control" id="endWord" placeholder="cog">
+</div>
+<div class="mb-3">
+    <label for="wordList" class="form-label">Word List</label>
+    <input type="text" @bind="WordList" class="form-control" id="wordList" placeholder='["hot","dot","dog","lot","log","cog"]'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;=&nbsp;beginWord.length &lt;= 100</code></li>
+        <li><code>endWord.length == beginWord.length</code></li>
+        <li><code>1 &lt;= wordList.length &lt;= 5000</code></li>
+        <li><code>wordList[i].length ==&nbsp;beginWord.length</code></li>
+        <li><code>beginWord</code>,&nbsp;<code>endWord</code>, and&nbsp;<code>wordList[i]</code> consist of lowercase English letters.</li>
+        <li><code>beginWord !=&nbsp;endWord</code></li>
+        <li>All the strings in&nbsp;<code>wordList</code> are <strong>unique</strong>.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string BeginWord { get; set; }
+    private string EndWord { get; set; }
+    private string WordList { get; set; }
+    private string Output { get; set; }
+
+    WordLadder problem = new WordLadder();
+
+    private void Run()
+    {
+        Output = problem.LadderLength(BeginWord, EndWord, WordList);
+    }
+}

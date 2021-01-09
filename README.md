@@ -25,3 +25,4 @@ You can also execute the application in command prompt by using the below comman
 6. [Kth Missing Positive Number](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3594/)
 7. [Longest Substring Without Repeating Characters](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/579/week-1-january-1st-january-7th/3595/)
 8. [Check If Two String Arrays are Equivalent](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3597/)
+9. [Word Ladder](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3598/)
