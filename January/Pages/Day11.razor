@@ -1,0 +1,54 @@
+﻿@page "/day11"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="nums1" class="form-label">nums1</label>
+    <input type="text" @bind="Nums1" class="form-control" id="nums1" placeholder="[1,2,3,0,0,0]">
+</div>
+<div class="mb-3">
+    <label for="m" class="form-label">m</label>
+    <input type="text" @bind="M" class="form-control" id="m" placeholder="3">
+</div>
+<div class="mb-3">
+    <label for="nums2" class="form-label">nums2</label>
+    <input type="text" @bind="Nums2" class="form-control" id="nums2" placeholder="[2,5,6]">
+</div>
+<div class="mb-3">
+    <label for="n" class="form-label">n</label>
+    <input type="text" @bind="N" class="form-control" id="n" placeholder="3">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>0 &lt;= n, m &lt;= 200</code></li>
+        <li><code>1 &lt;= n + m &lt;= 200</code></li>
+        <li><code>nums1.length == m + n</code></li>
+        <li><code>nums2.length == n</code></li>
+        <li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Nums1 { get; set; }
+    private string Nums2 { get; set; }
+    private string M { get; set; }
+    private string N { get; set; }
+    private string Output { get; set; }
+
+    MergeSortedArray problem = new MergeSortedArray();
+
+    private void Run()
+    {
+        Output = problem.Merge(Nums1, M, Nums2, N);
+    }
+}
