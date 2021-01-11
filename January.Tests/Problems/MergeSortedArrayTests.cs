@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using January.Problems;
+using NUnit.Framework;
 
 namespace January.Tests.Problems
 {
