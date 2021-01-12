@@ -1,0 +1,42 @@
+﻿@page "/day12"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="l1" class="form-label">List 1</label>
+    <input type="text" @bind="L1" class="form-control" id="l1" placeholder="[9,9,9,9,9,9,9]">
+</div>
+<div class="mb-3">
+    <label for="l2" class="form-label">List 2</label>
+    <input type="text" @bind="L2" class="form-control" id="l2" placeholder="[9,9,9,9]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The number of nodes in each linked list is in the range <code>[1, 100]</code>.</li>
+        <li><code>0 &lt;= Node.val &lt;= 9</code></li>
+        <li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string L1 { get; set; }
+    private string L2 { get; set; }
+    private string Output { get; set; }
+
+    AddTwoNumbersFromLinkedList problem = new AddTwoNumbersFromLinkedList();
+
+    private void Run()
+    {
+        Output = problem.AddTwoNumbers(L1, L2);
+    }
+}
