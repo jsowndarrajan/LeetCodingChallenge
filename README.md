@@ -31,3 +31,4 @@ You can also execute the application in command prompt by using the below comman
 12. [Add Two Numbers](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3601/)
 13. [Boats to Save People](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3602/)
 14. [Minimum Operations to Reduce X to Zero](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3603/)
+15. [Get Maximum in Generated Array](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3605/)

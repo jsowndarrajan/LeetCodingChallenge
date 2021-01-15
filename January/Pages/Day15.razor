@@ -1,0 +1,38 @@
+﻿@page "/day15"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="7">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>nums[0] = 0</code></li>
+        <li><code>nums[1] = 1</code></li>
+        <li><code>nums[2 * i] = nums[i]</code> when <code>2 &lt;= 2 * i &lt;= n</code></li>
+        <li><code>nums[2 * i + 1] = nums[i] + nums[i + 1]</code> when <code>2 &lt;= 2 * i + 1 &lt;= n</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    GetMaximumInGeneratedArray problem = new GetMaximumInGeneratedArray();
+
+    private void Run()
+    {
+        Output = problem.GetMaximumGenerated(Input);
+    }
+}
