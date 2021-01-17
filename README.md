@@ -33,3 +33,4 @@ You can also execute the application in command prompt by using the below comman
 14. [Minimum Operations to Reduce X to Zero](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3603/)
 15. [Get Maximum in Generated Array](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3605/)
 16. [Kth Largest Element in an Array](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3606/)
+17. [Count Sorted Vowel Strings](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/580/week-2-january-8th-january-14th/3607/)
