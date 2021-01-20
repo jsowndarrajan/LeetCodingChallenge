@@ -1,0 +1,36 @@
+﻿@page "/day20"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="()[]{}">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= Input.length &lt;= 10<sup>4</sup></code></li>
+        <li><code>Input</code> consists of parentheses only <code>'()[]{}'</code>.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private bool? Output { get; set; }
+
+    ValidParentheses problem = new ValidParentheses();
+
+    private void Run()
+    {
+        Output = problem.IsValid(Input);
+    }
+}
