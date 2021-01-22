@@ -1,0 +1,41 @@
+﻿@page "/day22"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label for="word1" class="form-label">Word1</label>
+    <input type="text" @bind="Word1" class="form-control" id="word1" placeholder="cabbba">
+</div>
+<div class="mb-3">
+    <label for="word2" class="form-label">Word2</label>
+    <input type="text" @bind="Word2" class="form-control" id="word2" placeholder="abbccc">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= Word1.Length, Word2.Length &lt;= 10<sup>5</sup></code></li>
+        <li><code>Word1</code> and <code>Word2</code> contain&nbsp;only lowercase English letters.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Word1 { get; set; }
+    private string Word2 { get; set; }
+    private bool? Output { get; set; }
+
+    readonly DetermineIfTwoStringsAreClose _problem = new DetermineIfTwoStringsAreClose();
+
+    private void Run()
+    {
+        Output = _problem.CloseStrings(Word1, Word2);
+    }
+}
