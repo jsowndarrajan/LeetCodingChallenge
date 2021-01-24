@@ -4,19 +4,10 @@ using Shared.Models;
 
 namespace January.Tests.Problems
 {
-    public class MergeTwoSortedListsTests
+    public class MergeKSortedListsTests
     {
-
-        private MergeTwoSortedLists _sut;
-
-        [SetUp]
-        public void Setup()
-        {
-            _sut = new MergeTwoSortedLists();
-        }
-
         [Test]
-        public void MergeTwoLists()
+        public void MergeKLists()
         {
             var a5 = new ListNode(5);
             var a6 = new ListNode(6);
@@ -34,7 +25,13 @@ namespace January.Tests.Problems
             b10.Next = b20;
             var l2 = b1;
 
-            var actual = _sut.MergeTwoLists(l1, l2);
+            var c2 = new ListNode(2);
+            var c9 = new ListNode(9);
+            c2.Next = c9;
+            var l3 = c2;
+
+            var sut = new MergeKSortedLists();
+            var actual = sut.MergeKLists(new[] { l1, l2, l3 });
 
             var expected = b1;
 
