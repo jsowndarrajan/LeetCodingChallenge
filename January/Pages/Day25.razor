@@ -1,0 +1,43 @@
+﻿@page "/day25"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Lists</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="[1,0,0,0,1,0,0,1]">
+</div>
+<div class="mb-3">
+    <label for="distance" class="form-label">Distance</label>
+    <input type="text" @bind="Distance" class="form-control" id="distance" placeholder="2">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= Input.Length &lt;= 10<sup>5</sup></code></li>
+        <li><code>0 &lt;= Distance &lt;= Input.Length</code></li>
+        <li><code>Input[i]</code> is <code>0</code> or <code>1</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Distance { get; set; }
+    private string Output { get; set; }
+
+    CheckIfAll1SAreAtLeastLengthKPlacesAway problem = new CheckIfAll1SAreAtLeastLengthKPlacesAway();
+
+    private void Run()
+    {
+        Output = problem.KLengthApart(Input, Distance);
+    }
+}
