@@ -1,0 +1,38 @@
+﻿@page "/day30"
+@using January.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="[4,1,5,20,3]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>n == Input.Length</code></li>
+        <li><code>2 &lt;= n &lt;= 10<sup><span style="font-size: 10.8333px;">5</span></sup></code></li>
+        <li><code>1 &lt;= Input[i] &lt;= 10<sup>9</sup></code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    MinimizeDeviationInArray problem = new MinimizeDeviationInArray();
+
+    private void Run()
+    {
+        Output = problem.MinimumDeviation(Input);
+    }
+}
