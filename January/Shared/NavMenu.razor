@@ -8,7 +8,7 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu" style="height: 95%; overflow: scroll; overflow-x: hidden;">
     <ul class="nav flex-column" style="margin-bottom: 20px;">
         
-        @for (var i = 1; i <= DateTime.Now.Day - 1; i++)
+        @for (var i = 1; i <= 31; i++)
         {
             var local_i = i;
             <li class="nav-item px-3">
