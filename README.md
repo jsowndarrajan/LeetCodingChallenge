@@ -48,3 +48,7 @@ You can also execute the application in command prompt by using the below comman
 29. [Vertical Order Traversal of a Binary Tree](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/583/week-5-january-29th-january-31st/3621/)
 30. [Minimize Deviation in Array](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/583/week-5-january-29th-january-31st/3622/)
 31. [Next Permutation](https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/583/week-5-january-29th-january-31st/3623/)
+
+## February
+
+1. [Number of 1 Bits](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/584/week-1-february-1st-february-7th/3625/)

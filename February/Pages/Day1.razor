@@ -1,0 +1,37 @@
+﻿@page "/"
+@page "/day1"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="00000000000000000000000000001011">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The input must be a <strong>binary string</strong> of length <code>32</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    NumberOf1Bits problem = new NumberOf1Bits();
+
+    private void Run()
+    {
+        Output = problem.HammingWeight(Input);
+    }
+}
