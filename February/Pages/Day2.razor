@@ -1,0 +1,46 @@
+﻿@page "/day2"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="[3,0,4,null,2,null,null,1]">
+</div>
+<div class="mb-3">
+    <label for="low" class="form-label">Low</label>
+    <input type="text" @bind="Low" class="form-control" id="low" placeholder="1">
+</div>
+<div class="mb-3">
+    <label for="high" class="form-label">High</label>
+    <input type="text" @bind="High" class="form-control" id="high" placeholder="3">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The input must be a <strong>binary string</strong> of length <code>32</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Low { get; set; }
+    private string High { get; set; }
+    private string Output { get; set; }
+
+    TrimABinarySearchTree problem = new TrimABinarySearchTree();
+
+    private void Run()
+    {
+        Output = problem.TrimBst(Input, Low, High);
+    }
+}

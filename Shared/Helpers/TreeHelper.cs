@@ -1,4 +1,5 @@
 ﻿using Shared.Models;
+using System.Collections.Generic;
 
 namespace Shared.Helpers
 {
@@ -46,6 +47,25 @@ namespace Shared.Helpers
             node.Right = ConstructLevelOrderTree(nodes, childIndex + 1, targetNode);
 
             return node;
+        }
+
+        public static List<int?> ConstructLevelOrderTree(TreeNode root)
+        {
+            var list = new List<int?>();
+            ConstructLevelOrderTree(root, list);
+            return list;
+        }
+
+        private static void ConstructLevelOrderTree(TreeNode root, List<int?> result)
+        {
+            if (root == null)
+            {
+                result.Add(null);
+                return;
+            }
+            result.Add(root.Value);
+            ConstructLevelOrderTree(root.Left, result);
+            ConstructLevelOrderTree(root.Right, result);
         }
     }
 }
