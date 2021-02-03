@@ -32,7 +32,7 @@ namespace Shared.Helpers
 
         public static ListNode[] ConvertStringArrayToListNodes(string input)
         {
-            var matches = Regex.Matches(input, @"\[[0-9,\s]*\]");
+            var matches = Regex.Matches(input, @"\[[0-9\-,\s]*\]");
             if (matches.Count < 1) throw new ArgumentException(Messages.InvalidInput);
 
             var output = new List<ListNode>();
