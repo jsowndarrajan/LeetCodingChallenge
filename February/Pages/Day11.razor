@@ -1,0 +1,35 @@
+﻿@page "/day11"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="source" class="form-label">Source</label>
+    <input type="text" @bind="Source" class="form-control" id="source" placeholder="anagram">
+</div>
+<div class="mb-3">
+    <label for="target" class="form-label">Target</label>
+    <input type="text" @bind="Target" class="form-control" id="target" placeholder="anagram">
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Source { get; set; }
+    private string Target { get; set; }
+    private bool? Output { get; set; }
+
+    ValidAnagram problem = new ValidAnagram();
+
+    private void Run()
+    {
+        Output = problem.IsAnagram(Source, Target);
+    }
+}
