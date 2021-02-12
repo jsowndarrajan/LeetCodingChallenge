@@ -1,0 +1,39 @@
+﻿@page "/day9"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Root</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+        <li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
+        <li>All the values in the tree are <strong>unique</strong>.</li>
+        <li><code>root</code> is guaranteed to be a valid binary search tree.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    ConvertBstToGreaterTree problem = new ConvertBstToGreaterTree();
+
+    private void Run()
+    {
+        Output = problem.ConvertBst(Input);
+    }
+}
