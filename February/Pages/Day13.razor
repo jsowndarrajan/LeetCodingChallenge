@@ -1,0 +1,37 @@
+﻿@page "/day13"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="[[0,0,0],[1,1,0],[1,1,0]]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li><code>1 &lt;= grid.length == grid[0].length &lt;= 100</code></li>
+        <li><code>grid[r][c]</code> is <code>0</code> or <code>1</code></li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    ShortestPathInBinaryMatrix problem = new ShortestPathInBinaryMatrix();
+
+    private void Run()
+    {
+        Output = problem.ShortestPathBinaryMatrix(Input);
+    }
+}
