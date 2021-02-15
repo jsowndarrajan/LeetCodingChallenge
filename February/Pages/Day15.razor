@@ -1,0 +1,45 @@
+﻿@page "/day15"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="[[1,0,0,0],[1,1,1,1],[1,0,0,0],[1,0,0,0]]">
+</div>
+<div class="mb-3">
+    <label for="k" class="form-label">K</label>
+    <input type="text" @bind="K" class="form-control" id="k" placeholder="3">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>m == Input.length</code></li>
+        <li><code>n == Input[i].length</code></li>
+        <li><code><font face="monospace">2 &lt;= n, m &lt;= 100</font></code></li>
+        <li><code>1 &lt;= k &lt;= m</code></li>
+        <li><code>Input[i][j]</code> is either 0 <strong>or</strong> 1.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string K { get; set; }
+    private string Output { get; set; }
+
+    TheKWeakestRowsInAMatrix problem = new TheKWeakestRowsInAMatrix();
+
+    private void Run()
+    {
+        Output = problem.KWeakestRows(Input, K);
+    }
+}
