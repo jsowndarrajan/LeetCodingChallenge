@@ -1,0 +1,37 @@
+﻿@page "/day16"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="a1b2" maxlength="12">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>Input</code> will be a string with length between <code>1</code> and <code>12</code>.</li>
+        <li><code>Input</code> will consist only of letters or digits.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    LetterCasePermutation problem = new LetterCasePermutation();
+
+    private void Run()
+    {
+        Output = problem.Execute(Input);
+    }
+}
