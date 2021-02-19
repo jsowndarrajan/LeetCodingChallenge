@@ -69,3 +69,4 @@ You can also execute the application in command prompt by using the below comman
 16. [Letter Case Permutation](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3642/)
 17. [Container With Most Water](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3643/)
 18. [Arithmetic Slices](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3644/)
+19. [Minimum Remove to Make Valid Parentheses](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3645/)
