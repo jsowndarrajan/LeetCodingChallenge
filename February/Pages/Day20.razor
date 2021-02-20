@@ -1,0 +1,44 @@
+﻿@page "/day20"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="MCMXCIV">
+</div>
+<div class="mb-3">
+    <label class="form-label">Note</label>
+    <ul>
+        <li><code>I</code> can be placed before <code>V</code> (5) and <code>X</code> (10) to make 4 and 9.&nbsp;</li>
+        <li><code>X</code> can be placed before <code>L</code> (50) and <code>C</code> (100) to make 40 and 90.&nbsp;</li>
+        <li><code>C</code> can be placed before <code>D</code> (500) and <code>M</code> (1000) to make 400 and 900.</li>
+    </ul>
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= Input.length &lt;= 15</code></li>
+        <li><code>Input</code> contains only&nbsp;the characters <code>('I', 'V', 'X', 'L', 'C', 'D', 'M')</code>.</li>
+        <li>It is <strong>guaranteed</strong>&nbsp;that <code>Input</code> is a valid roman numeral in the range <code>[1, 3999]</code>.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private int? Output { get; set; }
+
+    RomanToInteger problem = new RomanToInteger();
+
+    private void Run()
+    {
+        Output = problem.RomanToInt(Input);
+    }
+}
