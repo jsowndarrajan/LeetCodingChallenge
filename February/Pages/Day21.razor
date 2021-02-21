@@ -1,0 +1,42 @@
+﻿@page "/day21"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">X</label>
+    <input type="text" @bind="X" class="form-control" id="input" placeholder="1024">
+</div>
+<div class="mb-3">
+    <label for="input" class="form-label">Y</label>
+    <input type="text" @bind="Y" class="form-control" id="input" placeholder="1">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li><code>1 &lt;= X &lt;= 10^9</code></li>
+        <li><code>1 &lt;= Y &lt;= 10^9</code></li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string X { get; set; }
+    private string Y { get; set; }
+    private string Output { get; set; }
+
+    BrokenCalculator problem = new BrokenCalculator();
+
+    private void Run()
+    {
+        Output = problem.BrokenCalc(X, Y);
+    }
+}
