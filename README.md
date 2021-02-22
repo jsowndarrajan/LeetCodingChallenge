@@ -72,3 +72,4 @@ You can also execute the application in command prompt by using the below comman
 19. [Minimum Remove to Make Valid Parentheses](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3645/)
 20. [Roman to Integer](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3646/)
 21. [Broken Calculator](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3647/)
+22. [Longest Word in Dictionary through Deleting](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3648/)

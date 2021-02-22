@@ -1,0 +1,43 @@
+﻿@page "/day22"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="abpcplea">
+</div>
+<div class="mb-3">
+    <label for="wordList" class="form-label">WordList</label>
+    <input type="text" @bind="WordList" class="form-control" id="wordList" placeholder='["ale","apple","monkey","plea"]'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li>All the strings in the input will only contain lower-case letters.</li>
+        <li>The size of the dictionary won't exceed 1,000.</li>
+        <li>The length of all the strings in the input won't exceed 1,000.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string WordList { get; set; }
+    private string Output { get; set; }
+
+    LongestWordInDictionaryThroughDeleting problem = new LongestWordInDictionaryThroughDeleting();
+
+    private void Run()
+    {
+        Output = problem.FindLongestWord(Input, WordList);
+    }
+}
