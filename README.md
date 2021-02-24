@@ -74,3 +74,4 @@ You can also execute the application in command prompt by using the below comman
 21. [Broken Calculator](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3647/)
 22. [Longest Word in Dictionary through Deleting](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3648/)
 23. [Search a 2D Matrix II](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3649/)
+24. [Score of Parentheses](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/586/week-3-february-15th-february-21st/3650/)
