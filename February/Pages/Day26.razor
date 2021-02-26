@@ -1,0 +1,44 @@
+﻿@page "/day26"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="pushed" class="form-label">Pushed</label>
+    <input type="text" @bind="Pushed" class="form-control" id="pushed" placeholder="[1,2,3,4,5]">
+</div>
+<div class="mb-3">
+    <label for="popped" class="form-label">Popped</label>
+    <input type="text" @bind="Popped" class="form-control" id="popped" placeholder="[4,5,3,2,1]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>0 &lt;= Pushed.Length == Popped.Length &lt;= 1000</code></li>
+        <li><code>0 &lt;= Pushed[i], Popped[i] &lt; 1000</code></li>
+        <li><code>Pushed</code> is a permutation of <code>Popped</code>.</li>
+        <li><code>Pushed</code> and <code>Popped</code> have distinct values.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Pushed { get; set; }
+    private string Popped { get; set; }
+    private string Output { get; set; }
+
+    ValidateStackSequences problem = new ValidateStackSequences();
+
+    private void Run()
+    {
+        Output = problem.Validate(Pushed, Popped);
+    }
+}

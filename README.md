@@ -76,3 +76,4 @@ You can also execute the application in command prompt by using the below comman
 23. [Search a 2D Matrix II](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/587/week-4-february-22nd-february-28th/3650/)
 24. [Score of Parentheses](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/587/week-4-february-22nd-february-28th/3651/)
 25. [Shortest Unsorted Continuous Subarray](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/587/week-4-february-22nd-february-28th/3652/)
+26. [Validate Stack Sequences](https://leetcode.com/explore/challenge/card/february-leetcoding-challenge-2021/587/week-4-february-22nd-february-28th/3653/)
