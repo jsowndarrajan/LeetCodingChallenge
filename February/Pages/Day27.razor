@@ -1,0 +1,42 @@
+﻿@page "/day27"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="dividend" class="form-label">Dividend </label>
+    <input type="text" @bind="Dividend" class="form-control" id="dividend" placeholder="10">
+</div>
+<div class="mb-3">
+    <label for="divisor" class="form-label">Divisor </label>
+    <input type="text" @bind="Divisor" class="form-control" id="divisor" placeholder="2">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>-2<sup>31</sup> &lt;= Dividend,&nbsp;Divisor &lt;= 2<sup>31</sup> - 1</code></li>
+        <li><code>Divisor != 0</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Dividend { get; set; }
+    private string Divisor { get; set; }
+    private string Output { get; set; }
+
+    DivideTwoIntegers problem = new DivideTwoIntegers();
+
+    private void Run()
+    {
+        Output = problem.Divide(Dividend, Divisor);
+    }
+}
