@@ -1,0 +1,23 @@
+﻿@page "/day28"
+@using February.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>Calls to <code>FreqStack.push(int x)</code>&nbsp;will be such that <code>0 &lt;= x &lt;= 10^9</code>.</li>
+        <li>It is guaranteed that <code>FreqStack.pop()</code> won't be called if the stack has zero elements.</li>
+        <li>The total number of <code>FreqStack.push</code> calls will not exceed <code>10000</code> in a single test case.</li>
+        <li>The total number of <code>FreqStack.pop</code>&nbsp;calls will not exceed <code>10000</code> in a single test case.</li>
+        <li>The total number of <code>FreqStack.push</code> and <code>FreqStack.pop</code> calls will not exceed <code>150000</code> across all test cases.</li>
+    </ul>
+</div>
+
+@code {
+
+    DivideTwoIntegers problem = new DivideTwoIntegers();
+
+}
