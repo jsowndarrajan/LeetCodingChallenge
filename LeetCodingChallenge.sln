@@ -20,9 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "March", "March\March.csproj", "{90C2432C-3064-4E6A-B72F-36B7A33F82F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "March", "March\March.csproj", "{90C2432C-3064-4E6A-B72F-36B7A33F82F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "March.Tests", "March.Tests\March.Tests.csproj", "{8C8D3455-06DC-45DE-BC57-F7875AA556A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "March.Tests", "March.Tests\March.Tests.csproj", "{8C8D3455-06DC-45DE-BC57-F7875AA556A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
