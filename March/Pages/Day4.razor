@@ -1,0 +1,45 @@
+﻿@page "/day4"
+@using March.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input1" class="form-label">Input1</label>
+    <input type="text" @bind="Input1" class="form-control" id="input1" placeholder="[1,9,1,2,4]">
+</div>
+<div class="mb-3">
+    <label for="input2" class="form-label">Input2</label>
+    <input type="text" @bind="Input2" class="form-control" id="input2" placeholder="[3,2,4]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>If the two linked lists have no intersection at all, return <code>null</code>.</li>
+        <li>The linked lists must retain their original structure after the function returns.</li>
+        <li>You may assume there are no cycles anywhere in the entire linked structure.</li>
+        <li>Each value&nbsp;on each linked list is in the range <code>[1, 10^9]</code>.</li>
+        <li>Your code should preferably run in O(n) time and use only O(1) memory.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input1 { get; set; }
+    private string Input2 { get; set; }
+    private string Output { get; set; }
+
+    IntersectionOfTwoLinkedLists problem = new IntersectionOfTwoLinkedLists();
+
+    private void Run()
+    {
+        Output = problem.GetIntersectionNode(Input1, Input2);
+    }
+}
