@@ -1,0 +1,38 @@
+﻿@page "/day6"
+@using March.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="words" class="form-label">Words</label>
+    <input type="text" @bind="Words" class="form-control" id="words" placeholder='["time", "me", "bell"]'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= Words.length &lt;= 2000</code></li>
+        <li><code>1 &lt;= Words[i].length &lt;= 7</code></li>
+        <li><code>Words[i]</code> consists of only lowercase letters.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Words { get; set; }
+    private string Output { get; set; }
+
+    ShortEncodingOfWords problem = new ShortEncodingOfWords();
+
+    private void Run()
+    {
+        Output = problem.MinimumLengthEncoding(Words);
+    }
+}
