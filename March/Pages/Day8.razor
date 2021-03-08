@@ -1,0 +1,38 @@
+﻿@page "/day8"
+@using March.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder='baabb'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>0 &lt;= Input.Length &lt;= 1000</code></li>
+        <li><code>Input</code> only consists of letters 'a' and 'b'</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private int? Output { get; set; }
+
+    RemovePalindromicSubsequence problem = new RemovePalindromicSubsequence();
+
+    private void Run()
+    {
+        Output = problem.RemovePalindromeSub(Input);
+    }
+
+}
