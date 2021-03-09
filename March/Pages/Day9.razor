@@ -1,0 +1,48 @@
+﻿@page "/day9"
+@using March.Problems
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder='[1,2,3,4]'>
+</div>
+<div class="mb-3">
+    <label for="depth" class="form-label">Depth</label>
+    <input type="text" @bind="Depth" class="form-control" id="depth" placeholder='4'>
+</div>
+<div class="mb-3">
+    <label for="value" class="form-label">Value</label>
+    <input type="text" @bind="Value" class="form-control" id="value" placeholder='5'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li>The given depth is in range [1, maximum depth of the given tree + 1].</li>
+        <li>The given binary tree has at least one tree node.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Depth { get; set; }
+    private string Value { get; set; }
+    private string Output { get; set; }
+
+    AddOneRowToTree problem = new AddOneRowToTree();
+
+    private void Run()
+    {
+        Output = problem.AddOneRow(Input, Depth, Value);
+    }
+
+}
