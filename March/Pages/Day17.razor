@@ -1,0 +1,67 @@
+﻿@page "/day17"
+@using March.Problems
+@using global::Shared.Helpers
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="radius" class="form-label">Radius</label>
+    <input type="text" @bind="Radius" class="form-control" id="radius" placeholder="10">
+</div>
+<div class="mb-3">
+    <label for="xCenter" class="form-label">X Center</label>
+    <input type="text" @bind="XCenter" class="form-control" id="xCenter" placeholder="5">
+</div>
+<div class="mb-3">
+    <label for="yCenter" class="form-label">Y Center</label>
+    <input type="text" @bind="YCenter" class="form-control" id="yCenter" placeholder="-7.5">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li>input and output values are&nbsp;in&nbsp;<a href="https://www.webopedia.com/TERM/F/floating_point_number.html" target="_blank">floating-point</a>.</li>
+        <li>radius and x-y position of the center of the circle is passed into the class constructor.</li>
+        <li>a point on the circumference of the circle is considered to be&nbsp;in the circle.</li>
+        <li><code>randPoint</code>&nbsp;returns&nbsp;a size 2 array containing x-position and y-position of the random point, in that order.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Radius { get; set; }
+    private string XCenter { get; set; }
+    private string YCenter { get; set; }
+    private string Output { get; set; }
+
+    readonly GenerateRandomPointInACircle _problem = new GenerateRandomPointInACircle();
+
+    private void Run()
+    {
+        try
+        {
+            if (double.TryParse(Radius, out var radius) && double.TryParse(XCenter, out var xCenter) && double.TryParse(YCenter, out var yCenter))
+            {
+                _problem.Init(radius, xCenter, yCenter);
+                var result = _problem.RandPoint();
+                Output = JsonConvert.SerializeObject(result);
+            }
+            else
+            {
+                Output = Messages.InvalidInput;
+            }
+        }
+        catch
+        {
+            Output = Messages.InvalidInput;
+        }
+    }
+}
