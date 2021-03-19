@@ -67,6 +67,17 @@ namespace Shared.Helpers
             return output.ToArray();
         }
 
+        public static List<List<int>> ConvertStringToNestedList(string input)
+        {
+            var result = ConvertStringToNestedArray(input);
+            var output = new List<List<int>>();
+            foreach (var item in result)
+            {
+                output.Add(item.ToList());
+            }
+            return output;
+        }
+
         public static TreeNode ConvertStringArrayToTreeNode(string binaryArray)
         {
             var match = Regex.Match(binaryArray.Trim(), @"\[(.*)\]");
