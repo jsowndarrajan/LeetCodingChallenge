@@ -1,0 +1,111 @@
+﻿@page "/day20"
+@using March.Problems
+@using global::Shared.Helpers
+@using System.Globalization
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="id" class="form-label">Id</label>
+    <input type="text" @bind="Id" class="form-control" id="id" placeholder="45">
+</div>
+<div class="mb-3">
+    <label for="stationName" class="form-label">Station Name</label>
+    <input type="text" @bind="StationName" class="form-control" id="stationName" placeholder="Leyton">
+</div>
+<div class="mb-3">
+    <label for="time" class="form-label">Time</label>
+    <input type="text" @bind="Time" class="form-control" id="time" placeholder="3">
+</div>
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="CheckIn">Check In</button>
+    <button class="btn btn-primary mb-3" @onclick="CheckOut">Check Out</button>
+</div>
+
+
+<div class="mb-3">
+    <label class="form-label">Find Average Time</label>
+
+    <label for="startStation" class="form-label">Start Station</label>
+    <input type="text" @bind="StartStation" class="form-control" id="startStation" placeholder="Leyton">
+    <label for="endStation" class="form-label">End Station</label>
+    <input type="text" @bind="EndStation" class="form-control" id="endStation" placeholder="Paradise">
+</div>
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="GetAvgTime">GetAvgTime</button>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>There will be at most <code>20000</code> operations.</li>
+        <li><code>1 &lt;= id, t &lt;= 10<sup>6</sup></code></li>
+        <li>All strings consist of uppercase and lowercase English letters, and digits.</li>
+        <li><code>1 &lt;= stationName.length &lt;= 10</code></li>
+        <li>Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted as correct.</li>
+    </ul>
+</div>
+
+@code {
+    private string Id { get; set; }
+    private string StationName { get; set; }
+    private string Time { get; set; }
+    private string Output { get; set; }
+
+
+    private string StartStation { get; set; }
+    private string EndStation { get; set; }
+
+    readonly UndergroundSystem _problem = new UndergroundSystem();
+
+    private void CheckIn()
+    {
+        try
+        {
+            if (int.TryParse(Id, out var id) && int.TryParse(Time, out var time))
+            {
+                _problem.CheckIn(id, StationName, time);
+                Output = string.Empty;
+            }
+            else
+            {
+                Output = Messages.InvalidInput;
+            }
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+
+    private void CheckOut()
+    {
+        try
+        {
+            if (int.TryParse(Id, out var id) && int.TryParse(Time, out var time))
+            {
+                _problem.CheckOut(id, StationName, time);
+                Output = string.Empty;
+            }
+            else
+            {
+                Output = Messages.InvalidInput;
+            }
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+
+    private void GetAvgTime()
+    {
+        Output = _problem.GetAverageTime(StartStation, EndStation).ToString("F3", CultureInfo.InvariantCulture);
+    }
+
+}
