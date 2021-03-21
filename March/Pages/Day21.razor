@@ -1,0 +1,44 @@
+﻿@page "/day21"
+@using March.Problems
+@using global::Shared.Helpers
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="46">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li><code>1 &lt;= Input &lt;= 10^9</code></li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    readonly ReorderedPowerOf2 _problem = new ReorderedPowerOf2();
+
+    private void Run()
+    {
+        try
+        {
+            Output = int.TryParse(Input, out var input) ? _problem.Calculate(input).ToString() : Messages.InvalidInput;
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
