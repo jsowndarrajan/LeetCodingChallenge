@@ -1,0 +1,55 @@
+﻿@page "/day26"
+@using March.Problems
+@using global::Shared.Helpers
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="inputA" class="form-label">Input A</label>
+    <input type="text" @bind="InputA" class="form-control" id="inputA" placeholder='["amazon","apple","facebook","google","leetcode"]'>
+</div>
+<div class="mb-3">
+    <label for="inputB" class="form-label">Input B</label>
+    <input type="text" @bind="InputB" class="form-control" id="inputB" placeholder='["e","o"]'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Note</label>
+    <ol>
+        <li><code>1 &lt;= A.length, B.length &lt;= 10000</code></li>
+        <li><code>1 &lt;= A[i].length, B[i].length&nbsp;&lt;= 10</code></li>
+        <li><code>A[i]</code> and <code>B[i]</code> consist only of lowercase letters.</li>
+        <li>All words in <code>A[i]</code> are unique: there isn't <code>i != j</code> with <code>A[i] == A[j]</code>.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string InputA { get; set; }
+    private string InputB { get; set; }
+    private string Output { get; set; }
+
+    readonly WordSubsets _problem = new WordSubsets();
+
+    private void Run()
+    {
+        try
+        {
+            var A = DataConverter.ConvertStringToStringArray(InputA);
+            var B = DataConverter.ConvertStringToStringArray(InputB);
+            Output = JsonConvert.SerializeObject(_problem.Calculate(A, B));
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
