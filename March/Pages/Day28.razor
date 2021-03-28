@@ -1,0 +1,38 @@
+﻿@page "/day28"
+@using March.Problems
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder="owoztneoer">
+</div>
+<div class="mb-3">
+    <label class="form-label">Note</label>
+    <ol>
+        <li>Input contains only lowercase English letters.</li>
+        <li>Input is guaranteed to be valid and can be transformed to its original digits. That means invalid inputs such as "abc" or "zerone" are not permitted.</li>
+        <li>Input length is less than 50,000.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    readonly ReconstructOriginalDigitsFromEnglish _problem = new ReconstructOriginalDigitsFromEnglish();
+
+    private void Run()
+    {
+        Output = _problem.OriginalDigits(Input);
+    }
+}
