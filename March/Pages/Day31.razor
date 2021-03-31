@@ -1,0 +1,50 @@
+﻿@page "/day31"
+@using March.Problems
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="Stamp" class="form-label">Stamp</label>
+    <input type="text" @bind="Stamp" class="form-control" id="Stamp" placeholder="abc">
+</div>
+<div class="mb-3">
+    <label for="Target" class="form-label">Target </label>
+    <input type="text" @bind="Target" class="form-control" id="Target" placeholder="ababc">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li><code>1 &lt;= Stamp.Length &lt;= Target.Length &lt;= 1000</code></li>
+        <li><code>Stamp</code> and <code>Target</code> only contain lowercase letters.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Stamp { get; set; }
+    private string Target { get; set; }
+    private string Output { get; set; }
+
+    readonly StampingTheSequence _problem = new StampingTheSequence();
+
+    private void Run()
+    {
+        try
+        {
+            Output = JsonConvert.SerializeObject(_problem.MovesToStamp(Stamp, Target));
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
