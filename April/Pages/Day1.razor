@@ -1,0 +1,47 @@
+﻿@page "/"
+@page "/day1"
+@using April.Problems
+@using global::Shared.Helpers
+
+<h4 class="mb-3">
+    <a href="@problem.Url" target="_blank" class="ml-md-auto">@problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="Head" class="form-label">Head</label>
+    <input type="text" @bind="Head" class="form-control" id="Head" placeholder="[1,2,2,1]">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The number of nodes in the list is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+        <li><code>0 &lt;= Node.val &lt;= 9</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Head { get; set; }
+    private string Output { get; set; }
+
+    readonly PalindromeLinkedList problem = new PalindromeLinkedList();
+
+    private void Run()
+    {
+        try
+        {
+            var head = ListHelper.ConvertStringArrayToListNode(Head);
+            Output = problem.IsPalindrome(head).ToString();
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
