@@ -1,0 +1,46 @@
+﻿@page "/day8"
+@using April.Problems
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="Digits" class="form-label">Digits</label>
+    <input type="text" @bind="Digits" class="form-control" id="Digits" placeholder="23">
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>0 &lt;= Digits.Length &lt;= 4</code></li>
+        <li><code>Digits[i]</code> is a digit in the range <code>['2', '9']</code>.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Digits { get; set; }
+    private string Output { get; set; }
+
+    readonly LetterCombinationsOfAPhoneNumber _problem = new LetterCombinationsOfAPhoneNumber();
+
+    private void Run()
+    {
+        try
+        {
+            var result = _problem.LetterCombinations(Digits);
+            Output = JsonConvert.SerializeObject(result);
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
