@@ -1,0 +1,48 @@
+﻿@page "/day10"
+@using April.Problems
+@using global::Shared.Helpers
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Matrix</label>
+    <input type="text" @bind="Matrix" class="form-control" id="input" placeholder='[[9,9,4],[6,6,8],[2,1,1]]'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>m == Matrix.Length</code></li>
+        <li><code>n == Matrix[i].Length</code></li>
+        <li><code>1 &lt;= m, n &lt;= 200</code></li>
+        <li><code>0 &lt;= Matrix[i][j] &lt;= 2<sup>31</sup> - 1</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Matrix { get; set; }
+    private string Output { get; set; }
+
+    readonly LongestIncreasingPathInAMatrix _problem = new LongestIncreasingPathInAMatrix();
+
+    private void Run()
+    {
+        try
+        {
+            var matrix = DataConverter.ConvertStringToNestedArray(Matrix);
+            Output = _problem.LongestIncreasingPath(matrix).ToString();
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
