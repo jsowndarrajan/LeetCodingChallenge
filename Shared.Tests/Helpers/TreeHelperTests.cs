@@ -32,7 +32,22 @@ namespace Shared.Tests.Helpers
                 "[1,2,3,null,4,null,null,null,null,5,6]",
                 new TreeNode(1, new TreeNode(2, null, new TreeNode(4, new TreeNode(5), new TreeNode(6))), new TreeNode(3)),
                 true
-            }
+            },
+            new object[]
+            {
+                "[1,2,3,4,5,null,6,7,null,null,null,null,null,null,8]",
+                new TreeNode(1,
+                    new TreeNode(2,
+                        new TreeNode(4,
+                            new TreeNode(7)),
+                        new TreeNode(5)),
+                    new TreeNode(3,
+                        null,
+                        new TreeNode(6,
+                            null,
+                            new TreeNode(8)))),
+                true
+            },
         };
 
         [Test, TestCaseSource(nameof(TestCaseSymmetricTreeNode))]
