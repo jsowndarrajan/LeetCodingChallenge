@@ -1,0 +1,50 @@
+﻿@page "/day12"
+@using April.Problems
+@using global::Shared.Helpers
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="n" class="form-label">N</label>
+    <input type="text" @bind="N" class="form-control" id="n" placeholder='3'>
+</div>
+<div class="mb-3">
+    <label for="k" class="form-label">K</label>
+    <input type="text" @bind="K" class="form-control" id="k" placeholder='1'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ol>
+        <li>The <code>N</code> and <code>K</code> are in the range 1 &lt;= K &lt; N &lt;= 10<sup>4</sup>.</li>
+    </ol>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string N { get; set; }
+    private string K { get; set; }
+    private string Output { get; set; }
+
+    readonly BeautifulArrangement2 _problem = new BeautifulArrangement2();
+
+    private void Run()
+    {
+        if (int.TryParse(N, out var n) && int.TryParse(K, out var k))
+        {
+            Output = JsonConvert.SerializeObject(_problem.ConstructArray(n, k));
+        }
+        else
+        {
+            Output = Messages.InvalidInput;
+        }
+    }
+}
