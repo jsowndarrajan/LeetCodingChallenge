@@ -1,0 +1,18 @@
+﻿@page "/day13"
+@using April.Problems
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>1 &lt;= nestedList.length &lt;= 500</code></li>
+        <li>The values of the integers in the nested list is in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
+    </ul>
+</div>
+
+@code {
+
+    readonly NestedIterator _problem = new NestedIterator(new List<NestedInteger>());
+}
