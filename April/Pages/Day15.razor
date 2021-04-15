@@ -1,0 +1,44 @@
+﻿@page "/day15"
+@using April.Problems
+@using global::Shared.Helpers
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder='5'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>0 &lt;= n &lt;= 30</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Output { get; set; }
+
+    readonly FibonacciNumber _problem = new FibonacciNumber();
+
+    private void Run()
+    {
+        try
+        {
+            Output = int.TryParse(Input, out var n) ? _problem.Fib(n).ToString() : Messages.InvalidInput;
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}
