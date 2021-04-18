@@ -1,0 +1,54 @@
+﻿@page "/day18"
+@using April.Problems
+@using global::Shared.Helpers
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="Input" class="form-label">Input</label>
+    <input type="text" @bind="Input" class="form-control" id="Input" placeholder='[1,2,3,4,5]'>
+</div>
+<div class="mb-3">
+    <label for="n" class="form-label">N</label>
+    <input type="text" @bind="N" class="form-control" id="n" placeholder='2'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li>The number of nodes in the list is <code>sz</code>.</li>
+        <li><code>1 &lt;= sz &lt;= 30</code></li>
+        <li><code>0 &lt;= Node.val &lt;= 100</code></li>
+        <li><code>1 &lt;= n &lt;= sz</code></li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string N { get; set; }
+    private string Output { get; set; }
+
+    readonly RemoveNthNodeFromEndOfList _problem = new RemoveNthNodeFromEndOfList();
+
+    private void Run()
+    {
+        if (int.TryParse(N, out var n))
+        {
+            var head = ListHelper.ConvertStringArrayToListNode(Input);
+            Output = JsonConvert.SerializeObject(_problem.RemoveNthFromEnd(head, n));
+        }
+        else
+        {
+            Output = Messages.InvalidInput;
+        }
+    }
+}
