@@ -1,0 +1,55 @@
+﻿@page "/day2"
+@using August.Problems
+@using global::Shared.Helpers
+@using Newtonsoft.Json
+
+<h4 class="mb-3">
+    <a href="@_problem.Url" target="_blank" class="ml-md-auto">@_problem.Title</a>
+</h4>
+
+<div class="mb-3">
+    <label for="input" class="form-label">nums</label>
+    <input type="text" @bind="Input" class="form-control" id="input" placeholder='[2,7,11,15]'>
+</div>
+<div class="mb-3">
+    <label for="target" class="form-label">Target</label>
+    <input type="text" @bind="Target" class="form-control" id="target" placeholder='9'>
+</div>
+<div class="mb-3">
+    <label class="form-label">Constraints</label>
+    <ul>
+        <li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+        <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+        <li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+        <li>Only one valid answer exists.</li>
+    </ul>
+</div>
+<div class="mb-3">
+    <label class="form-label">Output: <code>@Output</code></label>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary mb-3" @onclick="Run">Run</button>
+</div>
+
+@code {
+    private string Input { get; set; }
+    private string Target { get; set; }
+    private string Output { get; set; }
+
+    readonly TwoSum _problem = new();
+
+    private void Run()
+    {
+        try
+        {
+            var input = DataConverter.ConvertStringToIntArray(Input);
+            var target = int.Parse(Target);
+            Output = JsonConvert.SerializeObject(_problem.Calculate(input, target));
+        }
+        catch (Exception ex)
+        {
+            Output = ex.Message;
+        }
+    }
+}

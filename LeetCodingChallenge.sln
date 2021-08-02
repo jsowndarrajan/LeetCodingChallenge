@@ -28,9 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "April", "April\April.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "April.Tests", "April.Tests\April.Tests.csproj", "{6A73088E-5B7D-4D16-89E9-3B8970BDE4D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "August.Tests", "August.Tests\August.Tests.csproj", "{D823015F-D70A-4D20-81CD-1BAB81FEC7FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "August.Tests", "August.Tests\August.Tests.csproj", "{D823015F-D70A-4D20-81CD-1BAB81FEC7FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "August", "August\August.csproj", "{A963275F-E19D-46E7-B7FC-8581D95F723E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "August", "August\August.csproj", "{A963275F-E19D-46E7-B7FC-8581D95F723E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
